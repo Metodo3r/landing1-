@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Ansiedad Funcional - Método 3R</title>
+    <meta name="description" content="Descubre qué tipo de ansiedad funcional tienes con este test especializado del Método 3R">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // ⬅️ PEGAR TU ID DE GA4 AQUÍ
+    </script>
+    
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1619537798963946'); // ⬅️ PEGAR TU PIXEL ID AQUÍ
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1619537798963946&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel -->
+    
+    <style>
+        .test-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0 80px;
+        }
+        
+        .test-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .test-header h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .test-header p {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .question-container {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border: 2px solid #f0f0f0;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .question-container:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.1);
+        }
+        
+        .question-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .question-text {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        
+        .answer-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .answer-btn {
+            padding: 1rem 2rem;
+            border: 2px solid #ddd;
+            background: white;
+            color: #2c3e50;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+        
+        .answer-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+            transform: translateY(-2px);
+            font-weight: 700;
+        }
+        
+        .answer-btn.selected {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .submit-test {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(39, 174, 96, 0.4);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        .back-to-landing {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .back-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #764ba2;
+        }
+        
+        @media (max-width: 768px) {
+            .test-content {
+                margin: 0 20px;
+                padding: 2rem;
+            }
+            
+            .test-header h1 {
+                font-size: 2rem;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .answer-buttons {
+                flex-direction: column;
+            }
+            
+            .answer-btn {
+                min-width: auto;
+            }
+        }
+
+        #countdown-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            background: linear-gradient(90deg, #e00715 60%, #e70a0a 100%);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.8rem 0;
+            text-align: center;
+            z-index: 10000;
+            box-shadow: 0 2px 8px rgba(39, 174, 96, 0.15);
+            letter-spacing: 1px;
+        }
+        #countdown-navbar .countdown-text {
+            margin-right: 1rem;
+        }
+        body {
+            padding-top: 56px; /* Ajusta si tu navbar es más alto o bajo */
+        }
+        @media (max-width: 600px) {
+            #countdown-navbar {
+                font-size: 1rem;
+                padding: 0.6rem 0;
+            }
+            body {
+                padding-top: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown-navbar">
+        <span class="countdown-text">⏰ OFERTA ESPECIAL TERMINA EN:</span>
+        <span id="countdown-timer">01:45:00</span>
+    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🌿 Método 3R</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Test Container -->
+    <div class="test-container">
+        <div class="container">
+            <div class="test-content">
+                <div class="test-header">
+                    <h1>🧪 TEST EMOCIONAL MÉTODO 3R</h1>
+                    <p>Responde sí o no a cada pregunta. Sé honesta contigo misma para obtener el resultado más preciso.</p>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <!-- Test Form -->
+                <form id="anxietyTest">
+                    <div class="question-container">
+                        <div class="question-number">Pregunta 1 de 8</div>
+                        <div class="question-text">¿Sueles sentirte agotada incluso después de dormir?</div>
+                        <div class="answer-buttons">
+                            <button type="button" class="answer-btn" data-question="1" data-answer="no">No</button>
+                            <button type="button" class="answer-btn" data-question="1" data-answer="yes">Sí</button>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <div class="question-number">Pregunta 2 de 8</div>
+                        <div class="question-text">¿Tu mente va a mil por hora aunque parezcas tranquila por fuera?</div>
+                        <div class="answer-buttons">
+                            <button type="button" class="answer-btn" data-question="2" data-answer="no">No</button>
+                            <button type="button" class="answer-btn" data-question="2" data-answer="yes">Sí</button>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <div class="question-number">Pregunta 3 de 8</div>
+                        <div class="question-text">¿Te cuesta disfrutar de lo que has logrado o lo que tienes?</div>
+                        <div class="answer-buttons">
+                            <button type="button" class="answer-btn" data-question="3" data-answer="no">No</button>
+                            <button type="button" class="answer-btn" data-question="3" data-answer="yes">Sí</button>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <div class="question-number">Pregunta 4 de 8</div>
+                        <div class="question-text">¿Sientes que cargas mucho… pero no sabes exactamente qué?</div>
+                        <div class="answer-buttons">
+                            <button type="button" class="answer-btn" data-question="4" data-answer="no">No</button>
+                            <button type="button" class="answer-btn" data-question="4" data-answer="yes">Sí</button>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <div class="question-number">Pregunta 5 de 8</div>
+                        <div class="question-text">¿Te has acostumbrado a funcionar con el pecho apretado o en alerta?</div>
+                        <div class="answer-buttons">
+                            <button type="button" class="answer-btn" data-question="5" data-answer="no">No</button>
+                            <button type="button" class="answer-btn" data-question="5" data-answer="yes">Sí</button>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <div class="question-number">Pregunta 6 de 8</div>
+                        <div class="question-text">¿Tienes momentos de irritabilidad o tristeza que no sabes de dónde vienen?</div>
+                        <div class="answer-buttons">
+                            <button type="button" class="answer-btn" data-question="6" data-answer="no">No</button>
+                            <button type="button" class="answer-btn" data-question="6" data-answer="yes">Sí</button>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <div class="question-number">Pregunta 7 de 8</div>
+                        <div class="question-text">¿Te exiges ser fuerte para no "molestar" con lo que sientes?</div>
+                        <div class="answer-buttons">
+                            <button type="button" class="answer-btn" data-question="7" data-answer="no">No</button>
+                            <button type="button" class="answer-btn" data-question="7" data-answer="yes">Sí</button>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <div class="question-number">Pregunta 8 de 8</div>
+                        <div class="question-text">¿Te gustaría tener un espacio seguro para liberar todo eso sin juicio?</div>
+                        <div class="answer-buttons">
+                            <button type="button" class="answer-btn" data-question="8" data-answer="no">No</button>
+                            <button type="button" class="answer-btn" data-question="8" data-answer="yes">Sí</button>
+                        </div>
+                    </div>
+
+                    <div class="submit-test">
+                        <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                            🧠 VER MI RESULTADO
+                        </button>
+                    </div>
+                </form>
+
+                <div class="back-to-landing">
+                    <a href="index.html" class="back-link">
+                        ← Volver a la página principal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Popup -->
+    <div id="resultPopup" style="display:none; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; background: rgba(0,0,0,0.4);">
+      <div id="resultContent" class="popup-content">
+        <!-- Aquí se inserta el contenido dinámicamente -->
+      </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="test-script.js"></script>
+    <script>
+(function() {
+    // Duración total en segundos: 1 hora 45 minutos = 6300 segundos
+    var DURATION = 6300;
+    var STORAGE_KEY = 'countdown3r_endTime';
+    var timerDisplay = document.getElementById('countdown-timer');
+
+    // Obtiene o crea la hora de finalización
+    function getEndTime() {
+        var endTime = localStorage.getItem(STORAGE_KEY);
+        if (endTime && !isNaN(Number(endTime))) {
+            return Number(endTime);
+        } else {
+            var newEndTime = Date.now() + DURATION * 1000;
+            localStorage.setItem(STORAGE_KEY, newEndTime);
+            return newEndTime;
+        }
+    }
+
+    var endTime = getEndTime();
+
+    function updateCountdown() {
+        var now = Date.now();
+        var remaining = Math.max(0, Math.floor((endTime - now) / 1000));
+        var h = Math.floor(remaining / 3600);
+        var m = Math.floor((remaining % 3600) / 60);
+        var s = remaining % 60;
+        timerDisplay.textContent =
+            (h < 10 ? '0' : '') + h + ':' +
+            (m < 10 ? '0' : '') + m + ':' +
+            (s < 10 ? '0' : '') + s;
+        if (remaining > 0) {
+            requestAnimationFrame(updateCountdown);
+        } else {
+            timerDisplay.textContent = "00:00:00";
+        }
+    }
+    updateCountdown();
+})();
+</script>
+</body>
+</html>

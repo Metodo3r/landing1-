@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Pixel de Facebook - Método 3R</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .log {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Verificador de Pixel de Facebook</h1>
+        <p>Esta herramienta te ayudará a verificar si el Pixel de Facebook está correctamente instalado en tu landing page.</p>
+
+        <div class="test-section">
+            <h2>📋 Verificaciones Automáticas</h2>
+            <div id="autoChecks"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🧪 Pruebas Manuales</h2>
+            <p>Haz clic en estos botones para simular eventos y verificar que el Pixel los capture:</p>
+            <button onclick="testPageView()">📄 Probar PageView</button>
+            <button onclick="testAddToCart()">🛒 Probar AddToCart</button>
+            <button onclick="testPurchase()">💰 Probar Purchase</button>
+            <button onclick="testLead()">📞 Probar Lead</button>
+            <button onclick="testCompleteRegistration()">📝 Probar CompleteRegistration</button>
+        </div>
+
+        <div class="test-section">
+            <h2>📊 Log de Eventos</h2>
+            <div id="eventLog" class="log"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🔧 Herramientas de Verificación</h2>
+            <button onclick="openFacebookPixelHelper()">🔍 Abrir Facebook Pixel Helper</button>
+            <button onclick="openGoogleTagAssistant()">🔍 Abrir Google Tag Assistant</button>
+            <button onclick="checkNetworkRequests()">🌐 Verificar Llamadas de Red</button>
+        </div>
+
+        <div class="test-section">
+            <h2>📝 Instrucciones</h2>
+            <ol>
+                <li><strong>Verifica el código:</strong> Asegúrate de que el Pixel ID esté correctamente configurado</li>
+                <li><strong>Prueba los eventos:</strong> Haz clic en los botones de prueba</li>
+                <li><strong>Revisa Facebook Business Manager:</strong> Ve a Eventos en tiempo real</li>
+                <li><strong>Usa Facebook Pixel Helper:</strong> Instala la extensión del navegador</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Función para agregar logs
+        function addLog(message, type = 'info') {
+            const log = document.getElementById('eventLog');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `[${timestamp}] ${message}`;
+            logEntry.style.color = type === 'error' ? 'red' : type === 'success' ? 'green' : 'black';
+            log.insertBefore(logEntry, log.firstChild);
+        }
+
+        // Verificaciones automáticas
+        function runAutoChecks() {
+            const checksDiv = document.getElementById('autoChecks');
+            let checks = '';
+
+            // Verificar si fbq está definido
+            if (typeof fbq !== 'undefined') {
+                checks += '<div class="status success">✅ fbq está definido</div>';
+                addLog('✅ fbq está definido', 'success');
+            } else {
+                checks += '<div class="status error">❌ fbq NO está definido</div>';
+                addLog('❌ fbq NO está definido', 'error');
+            }
+
+            // Verificar si el Pixel está inicializado
+            if (typeof fbq !== 'undefined' && fbq.loaded) {
+                checks += '<div class="status success">✅ Pixel de Facebook cargado</div>';
+                addLog('✅ Pixel de Facebook cargado', 'success');
+            } else {
+                checks += '<div class="status warning">⚠️ Pixel de Facebook no está cargado</div>';
+                addLog('⚠️ Pixel de Facebook no está cargado', 'warning');
+            }
+
+            // Verificar si hay llamadas de red a Facebook
+            setTimeout(() => {
+                const performance = window.performance;
+                const entries = performance.getEntriesByType('resource');
+                const facebookCalls = entries.filter(entry => 
+                    entry.name.includes('facebook.com') || 
+                    entry.name.includes('fbcdn.net')
+                );
+                
+                if (facebookCalls.length > 0) {
+                    checks += '<div class="status success">✅ Llamadas a Facebook detectadas</div>';
+                    addLog(`✅ ${facebookCalls.length} llamadas a Facebook detectadas`, 'success');
+                } else {
+                    checks += '<div class="status warning">⚠️ No se detectaron llamadas a Facebook</div>';
+                    addLog('⚠️ No se detectaron llamadas a Facebook', 'warning');
+                }
+            }, 2000);
+
+            checksDiv.innerHTML = checks;
+        }
+
+        // Funciones de prueba
+        function testPageView() {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'PageView');
+                addLog('📄 Evento PageView enviado', 'success');
+            } else {
+                addLog('❌ fbq no está disponible', 'error');
+            }
+        }
+
+        function testAddToCart() {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart', {
+                    content_ids: ['metodo3r'],
+                    content_name: 'Método 3R',
+                    value: 27.00,
+                    currency: 'USD'
+                });
+                addLog('🛒 Evento AddToCart enviado', 'success');
+            } else {
+                addLog('❌ fbq no está disponible', 'error');
+            }
+        }
+
+        function testPurchase() {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Purchase', {
+                    content_ids: ['metodo3r'],
+                    content_name: 'Método 3R',
+                    value: 27.00,
+                    currency: 'USD'
+                });
+                addLog('💰 Evento Purchase enviado', 'success');
+            } else {
+                addLog('❌ fbq no está disponible', 'error');
+            }
+        }
+
+        function testLead() {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Método 3R Lead',
+                    value: 27.00,
+                    currency: 'USD'
+                });
+                addLog('📞 Evento Lead enviado', 'success');
+            } else {
+                addLog('❌ fbq no está disponible', 'error');
+            }
+        }
+
+        function testCompleteRegistration() {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'CompleteRegistration', {
+                    content_name: 'Test de Ansiedad Funcional',
+                    value: 0.00,
+                    currency: 'USD'
+                });
+                addLog('📝 Evento CompleteRegistration enviado', 'success');
+            } else {
+                addLog('❌ fbq no está disponible', 'error');
+            }
+        }
+
+        // Funciones de herramientas
+        function openFacebookPixelHelper() {
+            window.open('https://chrome.google.com/webstore/detail/facebook-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc', '_blank');
+            addLog('🔍 Abriendo Facebook Pixel Helper', 'info');
+        }
+
+        function openGoogleTagAssistant() {
+            window.open('https://chrome.google.com/webstore/detail/google-tag-assistant-legacy/jgknkdbozlcckddlgpepahodjaplhhma', '_blank');
+            addLog('🔍 Abriendo Google Tag Assistant', 'info');
+        }
+
+        function checkNetworkRequests() {
+            const performance = window.performance;
+            const entries = performance.getEntriesByType('resource');
+            const facebookRequests = entries.filter(entry => 
+                entry.name.includes('facebook.com') || 
+                entry.name.includes('fbcdn.net')
+            );
+            
+            addLog(`🌐 ${facebookRequests.length} llamadas a Facebook encontradas:`, 'info');
+            facebookRequests.forEach((request, index) => {
+                addLog(`  ${index + 1}. ${request.name}`, 'info');
+            });
+        }
+
+        // Ejecutar verificaciones al cargar
+        window.addEventListener('load', function() {
+            addLog('🚀 Página cargada, iniciando verificaciones...', 'info');
+            setTimeout(runAutoChecks, 1000);
+        });
+
+        // Interceptar llamadas a fbq para logging
+        if (typeof fbq !== 'undefined') {
+            const originalFbq = fbq;
+            fbq = function(...args) {
+                addLog(`📡 fbq llamado: ${args[0]} ${JSON.stringify(args.slice(1))}`, 'info');
+                return originalFbq.apply(this, args);
+            };
+        }
+    </script>
+</body>
+</html> 

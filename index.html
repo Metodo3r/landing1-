@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método 3R - Respira, Redacta, Reconecta | Protocolo Anti-Ansiedad</title>
+    <meta name="description" content="El protocolo anti-ansiedad funcional que puedes aplicar en solo 10 minutos al día. Sin pastillas, sin citas médicas y sin dejar tu rutina.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // ⬅️ PEGAR TU ID DE GA4 AQUÍ
+    </script>
+    
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1619537798963946'); // ⬅️ PEGAR TU PIXEL ID AQUÍ
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1619537798963946&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel -->
+
+    <style>
+        #countdown-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            background: linear-gradient(90deg, #d70e0e 60%, #ef0606 100%);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.8rem 0;
+            text-align: center;
+            z-index: 10000;
+            box-shadow: 0 2px 8px rgba(39, 174, 96, 0.15);
+            letter-spacing: 1px;
+        }
+        #countdown-navbar .countdown-text {
+            margin-right: 1rem;
+        }
+        body {
+            padding-top: 56px; /* Ajusta si tu navbar es más alto o bajo */
+        }
+        @media (max-width: 600px) {
+            #countdown-navbar {
+                font-size: 1rem;
+                padding: 0.6rem 0;
+            }
+            body {
+                padding-top: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown-navbar">
+        <span class="countdown-text">⏰ OFERTA ESPECIAL TERMINA EN:</span>
+        <span id="countdown-timer">01:45:00</span>
+    </div>
+   
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    🌿 Método 3R: Respira, Redacta y Reconecta.
+                </h1>
+                <p class="hero-subtitle">
+                    📕 Ebook con el protocolo anti-ansiedad funcional que puedes aplicar en solo 10 minutos al día...
+                </p>
+                <p class="hero-description">
+                    Sin pastillas, sin citas médicas y sin dejar tu rutina.
+                </p>
+                <p class="hero-target">
+                    👉 Diseñado por y para mujeres que lo hacen todo… pero están agotadas por dentro.
+                </p>
+            </div>
+        </div>
+    </section>
+ 
+<!-- Mini sección de pago rápida -->
+<section class="mini-pricing">
+    <div class="container">
+        <div class="mini-pricing-content">
+            <div class="mini-pricing-prices">
+                <span class="mini-old-price">Antes: <s>$180.000 COP</s></span>
+                <span class="mini-new-price">HOY: <strong>$49.000 COP</strong></span>
+            </div>
+            <button class="mini-pricing-btn" onclick="window.open('https://mpago.li/11jaEUR', '_blank')">
+                ¡COMPRAR AHORA!
+            </button>
+            <img 
+                src= "assets/mercadopago.png"
+                alt="Métodos de pago Mercado Pago" 
+                class="mini-pricing-img"
+            >
+        </div>
+    </div>
+</section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2>😔 ¿Sientes que todo parece estar bien… pero tú no?</h2>
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <i class="fas fa-tired"></i>
+                    <p>Te levantas con el cuerpo cansado y la mente acelerada.</p>
+                </div>
+                <div class="problem-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Cumples con todo, pero por dentro te sientes al límite.</p>
+                </div>
+                <div class="problem-item">
+                    <i class="fas fa-heart"></i>
+                    <p>Tienes todo "lo necesario", pero no logras disfrutarlo.</p>
+                </div>
+                <div class="problem-item">
+                    <i class="fas fa-mask"></i>
+                    <p>Llevas tiempo fingiendo que estás bien… solo para no incomodar.</p>
+                </div>
+            </div>
+            <div class="alert-box">
+                <p><strong>❗ Eso no es flojera. Es ansiedad funcional. Y sí, tiene solución.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2>💜 El MÉTODO 3R es un refugio emocional diseñado para mujeres como tú:</h2>
+            <div class="solution-grid">
+                <div class="solution-item">
+                    <i class="fas fa-user-check"></i>
+                    <p>Altamente funcionales pero emocionalmente agotadas.</p>
+                </div>
+                <div class="solution-item">
+                    <i class="fas fa-hand-paper"></i>
+                    <p>Con dificultad para parar, pedir ayuda o priorizarse.</p>
+                </div>
+                <div class="solution-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>Que ya intentaron "pensar positivo"... y no funcionó.</p>
+                </div>
+                <div class="solution-item">
+                    <i class="fas fa-tools"></i>
+                    <p>Que quieren una herramienta real, práctica y amorosa para volver a la calma.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Mini sección de pago rápida -->
+<section class="mini-pricing">
+    <div class="container">
+        <div class="mini-pricing-content">
+            <div class="mini-pricing-prices">
+                <span class="mini-old-price">Antes: <s>$180.000 COP</s></span>
+                <span class="mini-new-price">HOY: <strong>$49.000 COP</strong></span>
+            </div>
+            <button class="mini-pricing-btn" onclick="window.open('https://mpago.li/11jaEUR', '_blank')">
+                ¡COMPRAR AHORA!
+            </button>
+            <img 
+                src="assets/mercadopago.png"
+                alt="Métodos de pago Mercado Pago" 
+                class="mini-pricing-img"
+            >
+        </div>
+    </div>
+</section>
+
+    <!-- Method Section -->
+    <section class="method">
+        <div class="container">
+            <h2>🌟 ¿Qué incluye el Método 3R?</h2>
+            <div class="method-grid">
+                <div class="method-item">
+                    <div class="method-icon">🧘‍♀️</div>
+                    <h3>RESPIRA (3 minutos)</h3>
+                    <p>Técnicas de respiración consciente validadas por la neurociencia para calmar tu sistema nervioso en tiempo real.</p>
+                </div>
+                <div class="method-item">
+                    <div class="method-icon">✍️</div>
+                    <h3>REDACTA (4 minutos)</h3>
+                    <p>Plantillas de escritura emocional para liberar sin juicio todo lo que te pesa. Ideal para soltar lo que no puedes decir en voz alta.</p>
+                </div>
+                <div class="method-item">
+                    <div class="method-icon">🌿</div>
+                    <h3>RECONECTA (3 minutos)</h3>
+                    <p>Visualizaciones terapéuticas para activar tu versión más serena y segura. Tu mente volverá a la calma… una y otra vez.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonuses Section -->
+    <section class="bonuses">
+        <div class="container">
+            <div class="urgency-box">
+                <h2>🎁 HOY: Llévate el Método 3R completo con todos estos BONOS:</h2>
+            </div>
+            <div class="bonuses-grid">
+                <div class="bonus-item">
+                    <i class="fas fa-headphones"></i>
+                    <h4>🎧 Audios guiados de respiración y visualización</h4>
+                </div>
+                <div class="bonus-item">
+                    <i class="fas fa-book"></i>
+                    <h4>📓 Plantillas de journaling (digitales e imprimibles)</h4>
+                </div>
+                <div class="bonus-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h4>📅 Calendario de 21 días para formar el hábito</h4>
+                </div>
+                <div class="bonus-item">
+                    <i class="fas fa-users"></i>
+                    <h4>👩‍💻 Acceso preferencial al grupo privado de mujeres 3R</h4>
+                </div>
+            </div>
+            <div class="scarcity-box">
+                <p><strong>🟣 Solo disponible para las primeras 100 mujeres que compren hoy.</strong></p>
+            </div>
+        </div>
+    </section>
+
+<!-- Mini sección de pago rápida -->
+<section class="mini-pricing">
+    <div class="container">
+        <div class="mini-pricing-content">
+            <div class="mini-pricing-prices">
+                <span class="mini-old-price">Antes: <s>$180.000 COP</s></span>
+                <span class="mini-new-price">HOY: <strong>$49.000 COP</strong></span>
+            </div>
+            <button class="mini-pricing-btn" onclick="window.open('https://mpago.li/11jaEUR', '_blank')">
+                ¡COMPRAR AHORA!
+            </button>
+            <img 
+                src="assets/mercadopago.png"
+                alt="Métodos de pago Mercado Pago" 
+                class="mini-pricing-img"
+            >
+        </div>
+    </div>
+</section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>💬 Lo que dicen otras mujeres como tú</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"La primera vez que escribí, lloré sin parar… y dormí profundo por primera vez en semanas."</p>
+                        <div class="testimonial-author">
+                            <strong>— Ana M.</strong> (32 años, mamá y diseñadora)
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"No tuve que cambiar toda mi vida. Solo darme 10 minutos… y eso lo cambió todo."</p>
+                        <div class="testimonial-author">
+                            <strong>— Mariana G.</strong> (39 años, abogada)
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Me sentía rota. Hoy sé que solo estaba saturada. Este método me devolvió a mí."</p>
+                        <div class="testimonial-author">
+                            <strong>— Laura P.</strong> (27 años, estudiante de posgrado)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority Section -->
+    <section class="authority">
+        <div class="container">
+            <h2>🧠 Inspirado en estudios de neurociencia afectiva, teoría polivagal y escritura terapéutica.</h2>
+            <p>Apoyado en investigaciones del Dr. Bessel van der Kolk, Dr. Stephen Porges y Dr. James Pennebaker.</p>
+        </div>
+    </section>
+
+<!-- Mini sección de pago rápida -->
+<section class="mini-pricing">
+    <div class="container">
+        <div class="mini-pricing-content">
+            <div class="mini-pricing-prices">
+                <span class="mini-old-price">Antes: <s>$180.000 COP</s></span>
+                <span class="mini-new-price">HOY: <strong>$49.000 COP</strong></span>
+            </div>
+            <button class="mini-pricing-btn" onclick="window.open('https://mpago.li/11jaEUR', '_blank')">
+                ¡COMPRAR AHORA!
+            </button>
+            <img 
+                src="assets/mercadopago.png"
+                alt="Métodos de pago Mercado Pago" 
+                class="mini-pricing-img"
+            >
+        </div>
+    </div>
+</section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2>💡 ¿Qué vas a lograr con el Método 3R?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-search"></i>
+                    <p>Identificar y liberar la ansiedad sin medicarte.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-peace"></i>
+                    <p>Volver a sentir calma sin tener que aislarte.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-home"></i>
+                    <p>Crear un refugio emocional, sin dejar de ser tú.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-heart"></i>
+                    <p>Reconectar con tu centro… en solo 10 minutos al día.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <div class="pricing-box">
+                <h2>🔥 INVERSIÓN HOY:</h2>
+                <div class="price-comparison">
+                    <div class="old-price">
+                        <span class="price-label">💸 Antes:</span>
+                        <span class="price-amount">$180.000 COP</span>
+                    </div>
+                    <div class="new-price">
+                        <span class="price-label">🎉 HOY:</span>
+                        <span class="price-amount">Solo $49.000 COP</span>
+                    </div>
+                </div>
+                <div class="pricing-features">
+                    <p>✅ Acceso inmediato.</p>
+                    <p>✅ Descarga digital.</p>
+                    <p>✅ Garantía 100% de satisfacción.</p>
+                </div>
+                <div class="security-info">
+                    <p>🔒 Compra segura | 📩 Entrega inmediata | 🕓 Acceso para siempre</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>👇 ¿Lista para soltar lo que te pesa?</h2>
+            <button class="cta-button" onclick="window.open('https://mpago.li/11jaEUR', '_blank')">
+                👉 QUIERO EL MÉTODO 3R AHORA
+            </button>
+            <div class="contact-info">
+                <p>💬 Si tienes preguntas, escribe al WhatsApp con la palabra CALMA</p>
+                <a href="https://wa.me/573024465239?text=CALMA" class="whatsapp-link" target="_blank">
+                    📲 https://wa.me/573024465239
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exit Intent Popup -->
+    <div id="exitPopup" class="popup-overlay">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <div class="popup-header">
+                <h2>🎁 ¡Espera! Tienes un regalo especial</h2>
+            </div>
+            <div class="popup-body">
+                <p>Antes de que te vayas, queremos darte algo especial.</p>
+                <p><strong>Te has hecho merecedora de poder aplicar a un test para saber qué tipo de ansiedad funcional tienes.</strong></p>
+                <p>Este test te ayudará a:</p>
+                <ul>
+                    <li>Identificar tu patrón específico de ansiedad</li>
+                    <li>Recibir recomendaciones personalizadas</li>
+                    <li>Entender mejor tu situación actual</li>
+                </ul>
+                <p>¿Te gustaría acceder a este test gratuito?</p>
+            </div>
+            <div class="popup-actions">
+                <button class="popup-button primary" onclick="takeTest()">
+                    🧠 SÍ, QUIERO HACER EL TEST
+                </button>
+                <button class="popup-button secondary" onclick="closePopup()">
+                    No, gracias
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor del test (oculto por defecto) -->
+<div id="testContainer" style="display:none;">
+    <form id="anxietyTest">
+        <!-- Ejemplo de preguntas, reemplaza por las reales -->
+        <div>
+            <p>¿Te sientes cansada al despertar?</p>
+            <button type="button" class="answer-btn" data-question="1" data-answer="yes">Sí</button>
+            <button type="button" class="answer-btn" data-question="1" data-answer="no">No</button>
+        </div>
+        <!-- ...agrega aquí las demás preguntas del test... -->
+        <button id="submitBtn" type="submit" disabled>Obtener resultado</button>
+    </form>
+</div>
+<!-- Contenedor del resultado del test (oculto por defecto) -->
+<div id="resultPopupTest" style="display:none;">
+    <div id="resultContent"></div>
+    <div style="text-align:center; margin-top:2rem;">
+        <button id="payBtn" class="popup-button primary">Ir a pago</button>
+        <button id="backBtn" class="popup-button secondary">Volver</button>
+    </div>
+</div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script>
+(function() {
+
+    // Configuración del temporizador
+    // Duración en segundos: 1 hora 45 minutos = 6300 segundos
+    var duration = 6300;
+    var timerDisplay = document.getElementById('countdown-timer');
+    var endTime = Date.now() + duration * 1000;
+
+    function updateCountdown() {
+        var now = Date.now();
+        var remaining = Math.max(0, Math.floor((endTime - now) / 1000));
+        var h = Math.floor(remaining / 3600);
+        var m = Math.floor((remaining % 3600) / 60);
+        var s = remaining % 60;
+        timerDisplay.textContent =
+            (h < 10 ? '0' : '') + h + ':' +
+            (m < 10 ? '0' : '') + m + ':' +
+            (s < 10 ? '0' : '') + s;
+        if (remaining > 0) {
+            requestAnimationFrame(updateCountdown);
+        } else {
+            timerDisplay.textContent = "00:00:00";
+        }
+    }
+    updateCountdown();
+})();
+</script>
+</body>
+</html>
